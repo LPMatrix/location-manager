@@ -22,5 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/add-location', 'HomeController@add')->name('add-location');
+Route::post('/location/create', 'HomeController@add_location')->name('add');
 
 Route::get('/view-location', 'HomeController@view')->name('view-location');

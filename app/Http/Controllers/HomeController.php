@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Locations;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -33,6 +35,13 @@ class HomeController extends Controller
 
     public function view()
     {
-        return view('viewlocation');
+        $locations = DB::table('locations')->orderBy('id', 'DESC')->get();
+        return view('viewlocation')->with('locations', $locations);
+    }
+
+    public function add_location(Request $request)
+    {
+        $location = Locations::create($request->all());
+        return redirect('add-location')->withSuccess('You have successfully added a location');
     }
 }

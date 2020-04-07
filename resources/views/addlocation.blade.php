@@ -11,6 +11,12 @@
             <li class="active">Add Location</li>
         </ol>
     </div>
+    @if (session('success'))
+      <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ session('success') }}
+      </div>
+    @endif
     <div class="page-body clearfix">
 
         <div class="panel panel-default">
@@ -20,7 +26,8 @@
             </div>
             <div class="panel-body">
                 <h3 class="panel-inside-title">Enter Details</h3>
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" action="location/create">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label>Atm Id</label>
@@ -72,7 +79,7 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label>State</label>
-                            <input type="text" class="form-control" placeholder="Indiana" name="Indiana" required/>
+                            <input type="text" class="form-control" placeholder="Indiana" name="state" required/>
                         </div>
                         <div class="col-sm-6">
                             <label>City</label>
@@ -86,7 +93,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Zip Code</label>
-                            <input type="text" class="form-control" placeholder="46205" name="zip_code" required />
+                            <input type="text" class="form-control" placeholder="46205" name="zip" required />
                         </div>
                     </div>
                     <div class="form-group">
@@ -143,7 +150,7 @@
                         <label>Monday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="monday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -173,7 +180,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="monday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -208,7 +215,7 @@
                         <label>Tuesday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="tuesday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -238,7 +245,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="tuesday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -273,7 +280,7 @@
                         <label>Wednesday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="wednesday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -303,7 +310,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="wednesday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -338,7 +345,7 @@
                         <label>Thursday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="thursday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -368,7 +375,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="thursday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -403,7 +410,7 @@
                         <label>Friday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="friday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -433,7 +440,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="friday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -468,7 +475,7 @@
                         <label>Saturday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="saturday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -498,7 +505,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="saturday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -533,7 +540,7 @@
                         <label>Sunday</label>
                     <div class="form-group">     
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="sunday_opening">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
@@ -563,7 +570,7 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <select class="form-control selectpicker show-tick" data-live-search="true">
+                            <select class="form-control selectpicker show-tick" data-live-search="true" name="sunday_closing">
                                 <option value="--:--" selected="" disabled="" hidden="">Closed</option>
                                 <option value="00:00">00:00</option>
                                 <option value="01:00">01:00</option>
