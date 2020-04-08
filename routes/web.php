@@ -25,3 +25,9 @@ Route::get('/add-location', 'HomeController@add')->name('add-location');
 Route::post('/location/create', 'HomeController@add_location')->name('add');
 
 Route::get('/view-location', 'HomeController@view')->name('view-location');
+Route::get('/location/{id}/delete', 'HomeController@destroy');
+Route::patch('/location/{id}', 'HomeController@update');
+
+Route::patch('/profile/{id}', 'HomeController@profile');
+
+Route::patch('/password/{id}', 'HomeController@password');

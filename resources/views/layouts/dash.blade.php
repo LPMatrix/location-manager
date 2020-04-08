@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -124,7 +124,7 @@
 
                 <li class="dropdown user-menu">
                   <a
-                    href="javascript:void(0);"
+                    href="/home"
                     class="dropdown-toggle"
                     data-toggle="dropdown"
                   >
@@ -136,52 +136,7 @@
                         <span class="hidden-xs">{{ Auth::user()->name }}</span>
                     @endif
                   </a>
-                  <!-- <ul class="dropdown-menu">
-                    <li class="header">
-                      <img
-                        src="assets/images/avatars/face2.jpg"
-                        alt="User Avatar"
-                      />
-                      <div class="user">
-                        Brandon Sanchez
-                        <div class="title">Front-end Developer</div>
-                      </div>
-                    </li>
-                    <li class="body">
-                      <ul>
-                        <li>
-                          <a href="pages/miscellaneous/profile.html">
-                            <i class="material-icons">account_circle</i> Profile
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:void(0);">
-                            <i class="material-icons">lock_open</i> Change
-                            Password
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="footer">
-                      <div class="row clearfix">
-                        <div class="col-xs-5">
-                          <a
-                            href="pages/examples/locked-screen.html"
-                            class="btn btn-default btn-sm btn-block"
-                            >Log Off</a
-                          >
-                        </div>
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-5">
-                          <a
-                            href="javascript:void(0);"
-                            class="btn btn-default btn-sm btn-block"
-                            >Log Out</a
-                          >
-                        </div>
-                      </div>
-                    </li>
-                  </ul> -->
+ 
                 </li>
 
                 <li class="pull-right">
@@ -206,7 +161,7 @@
               MAIN NAVIGATION
             </li>
             <li class="active">
-              <a href="javascript:void(0);" class="menu-toggle">
+              <a href="/home" class="menu-toggle">
                 <i class="material-icons">dashboard</i>
                 <span class="nav-label">Dashboards</span>
               </a>
